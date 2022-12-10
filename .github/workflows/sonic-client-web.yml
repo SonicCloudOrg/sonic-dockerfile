@@ -3,7 +3,6 @@ name: sonic-client-web
 on:
   workflow_dispatch:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,14 +11,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: login docker hub
-        run: echo "${{ secrets.ACCESS_TOKEN }}" | docker login -u zhouyixun --password-stdin
-      - name: build docker image
-        run: docker build -f sonic-client-web/Dockerfile -t sonicorg/sonic-client-web-base:v1.0.0 .
-      - name: push docker image
-        run: docker push sonicorg/sonic-client-web-base:v1.0.0
-      - name: login docker hub
         run: echo "${{ secrets.ACCESS_TOKEN_ALIYUN }}" | docker login --username=${{ secrets.ALIYUN_USERNAME }} registry.cn-hongkong.aliyuncs.com --password-stdin
-      - name: tag
-        run: docker tag sonicorg/sonic-client-web-base:v1.0.0 registry.cn-hongkong.aliyuncs.com/sonic-cloud/sonic-client-web-base:v1.0.0
+      - name: build docker image
+        run: docker build -f sonic-client-web/Dockerfile -t registry.cn-hongkong.aliyuncs.com/sonic-cloud/sonic-client-web-base:v1.0.0 .
       - name: push docker image
         run: docker push registry.cn-hongkong.aliyuncs.com/sonic-cloud/sonic-client-web-base:v1.0.0
