@@ -12,6 +12,6 @@ jobs:
       - name: login docker hub
         run: echo "${{ secrets.ACCESS_TOKEN }}" | docker login -u zhouyixun --password-stdin
       - name: build docker image
-        run: docker build -f sonic-server/Dockerfile -t sonicorg/sonic-server-base:v1.0.0 .
+        run: docker build -f sonic-server/Dockerfile -t sonicorg/sonic-server-base:v1.0.1 .
       - name: push docker image
-        run: docker push sonicorg/sonic-server-base:v1.0.0
+        run: docker push sonicorg/sonic-server-base:v1.0.1
