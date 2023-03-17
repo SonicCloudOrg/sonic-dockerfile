@@ -22,8 +22,7 @@ RUN apt-get -qqy update && \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
 
-RUN wget -O java.tar.gz https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz
- && \
+RUN wget -O java.tar.gz https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz && \
     tar zxvf java.tar.gz && rm java.tar.gz && \
     chmod a+x -R /root/jdk-17+20 && \
     chown -R root:root /root/jdk-17+20
