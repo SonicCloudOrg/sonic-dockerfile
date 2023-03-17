@@ -22,12 +22,13 @@ RUN apt-get -qqy update && \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
 
-RUN wget -O java.tar.gz https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2%2B7/OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz && \
+RUN wget -O java.tar.gz https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz
+ && \
     tar zxvf java.tar.gz && rm java.tar.gz && \
-    chmod a+x -R /root/jdk-15.0.2+7 && \
-    chown -R root:root /root/jdk-15.0.2+7
+    chmod a+x -R /root/jdk-17+20 && \
+    chown -R root:root /root/jdk-17+20
 
-ENV JAVA_HOME="/root/jdk-15.0.2+7" \
+ENV JAVA_HOME="/root/jdk-17+20" \
     PATH=$PATH:$JAVA_HOME/bin
 
 ENV ANDROID_HOME=/root
