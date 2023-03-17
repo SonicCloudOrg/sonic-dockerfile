@@ -44,9 +44,8 @@ ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest:$ANDROID_HOME/cmdline-tools/la
 
 RUN mkdir -p ~/.android && \
     touch ~/.android/repositories.cfg && \
-    echo y | sdkmanager "platform-tools" && \
-    adb devices
+    echo y | sdkmanager "platform-tools"
 
 ENV PATH=$PATH:$ANDROID_HOME/platform-tools
 
-RUN mkdir -p mini plugins config
+RUN adb devices && mkdir -p mini plugins config
