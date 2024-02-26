@@ -1,3 +1,3 @@
-FROM openjdk:17-jdk AS builder
+FROM eclipse-temurin:17-jdk AS builder
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
